@@ -6,7 +6,7 @@ public class BusLink extends Link{
 	HashSet<BusNode> from  = new HashSet<BusNode>();
 	HashSet<BusNode> to = new HashSet<BusNode>();
 	
-	public BusLink(){
-		super(0);
+	public BusLink(double d){
+		super(d);
 	}
 }

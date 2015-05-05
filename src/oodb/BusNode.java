@@ -3,7 +3,7 @@ import java.util.*;
 
 public class BusNode extends Node{
 
-	public BusNode(){
-		super("");
+	public BusNode(String s){
+		super(s);
 	}
 }
