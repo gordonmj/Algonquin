@@ -1,7 +1,6 @@
 package oodb;
 
 import java.util.*;
-import javax.jdo.*;
 
 public abstract class Utility
 {

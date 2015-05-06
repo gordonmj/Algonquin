@@ -1,11 +1,14 @@
 package oodb;
 import java.util.*;
 
-@javax.jdo.annotations.PersistenceCapable
+import java.io.Serializable;
+import javax.persistence.*;
+ 
+@Entity
 public class TransportationNetwork {
 
 	public String code;
-	public HashSet<Node> nodes;
+	public HashSet<Node> nodes = new HashSet<Node>();
 	public HashSet<Link> links = new HashSet<Link>();
 	public HashSet<TrainOrBus> trainsOrBuses = new HashSet<TrainOrBus>();
 	
