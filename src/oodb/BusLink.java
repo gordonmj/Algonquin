@@ -1,6 +1,7 @@
 package oodb;
 import java.util.*;
 
+@javax.jdo.annotations.PersistenceCapable
 public class BusLink extends Link{
 
 	HashSet<BusNode> from  = new HashSet<BusNode>();

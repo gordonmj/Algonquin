@@ -1,6 +1,7 @@
 package oodb;
 import java.util.*;
 
+@javax.jdo.annotations.PersistenceCapable
 public abstract class Node {
 
 	public String name;

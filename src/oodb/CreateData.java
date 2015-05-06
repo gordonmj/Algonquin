@@ -1,7 +1,7 @@
 package oodb;
 
 import javax.jdo.PersistenceManager;
-
+//import javax.persistence.spi.PersistenceUnitInfo;
 import com.objectdb.Utilities;
 
 public class CreateData {

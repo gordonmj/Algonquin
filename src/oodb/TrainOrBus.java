@@ -1,5 +1,6 @@
 package oodb;
 
+@javax.jdo.annotations.PersistenceCapable
 public class TrainOrBus {
 
 	public String code;
