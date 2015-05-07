@@ -5,7 +5,7 @@ import java.util.*;
 public class TransportationNetwork {
 
 	public String code;
-	public HashSet<Node> nodes;
+	public HashSet<Node> nodes = new HashSet<Node>();
 	public HashSet<Link> links = new HashSet<Link>();
 	public HashSet<TrainOrBus> trainsOrBuses = new HashSet<TrainOrBus>();
 	

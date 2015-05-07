@@ -8,10 +8,10 @@ public class CreateData {
 
 	public static TrainNode[] trainNodes = new TrainNode[10];
 	public static TrainLink[] trainLinks = new TrainLink[10];
-	public static void main(){
-		PersistenceManager pm = Utilities.getPersistenceManager("transportation.odb");
+	public static void main(String[] args){
+		PersistenceManager pm = Utilities.getPersistenceManager("Algonquin/transportation.odb");
 		TransportationNetwork transitSystem = new TransportationNetwork("Transit System");
-		
+		pm.currentTransaction().begin();
 		trainLinks[0] = new TrainLink(1.0);
 		transitSystem.links.add(trainLinks[0]);
 		pm.makePersistent(trainLinks[0]);
@@ -24,8 +24,10 @@ public class CreateData {
 			pm.makePersistent(trainNodes[t]);
 			trainLinks[t].from.add(trainNodes[t]);
 			trainLinks[t+1].to.add(trainNodes[t]);
+			System.out.println("Making stuff.");
 		}
-		
+		pm.currentTransaction().commit();
+		pm.close();
 		
 	}
 }
