@@ -1,5 +1,14 @@
 package oodb2;
 
-public abstract class Person {
+@javax.jdo.annotations.PersistenceCapable
+public abstract class Person
+{
+	String name;
 
+
+	public String toString()
+	{
+		return name;
+	}
 }
+
