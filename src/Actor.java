@@ -19,11 +19,10 @@ public class Actor extends Person
 	   Sort the result by name. */
 	{
 		q.setClass(Actor.class);
-		Collection<Actor> c = new HashSet<Actor>();
-		q.setCandidates(c);
 		q.declareParameters("int y1, int y2");
 		q.declareVariables("Movie m");
 		q.setFilter("this.movies.contains(m) && m.releaseYear>=y1 && m.releaseYear<=y2");
+		q.setOrdering("this.name ascending");
 		@SuppressWarnings("unchecked")
 		Collection<Actor> result = (Collection<Actor>) q.execute(y1,y2);
 		return result;
