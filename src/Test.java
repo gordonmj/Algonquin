@@ -11,11 +11,11 @@ public class Test
 		PersistenceManager pm = Utilities.getPersistenceManager( "C:\\Users\\Michael\\Dropbox\\School\\OODB\\Algonquin\\bin\\movie.odb" );
 
 		System.out.println( "-- TEST Studio.find --\n" );
-//		Studio queens = Studio.find( "Queens Indie Film", pm );
-//		Studio cent = Studio.find( "21st Century Film", pm );
+		Studio queens = Studio.find( "Queens Indie Film", pm );
+		Studio cent = Studio.find( "21st Century Film", pm );
 
-//		System.out.println( queens );
-//		System.out.println( cent );
+		System.out.println( queens );
+		System.out.println( cent );
 		System.out.println();
 
 		System.out.println( "-- TEST Studio.studiosWithThisActor --\n" );

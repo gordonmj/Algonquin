@@ -1,6 +1,7 @@
 
 
 import java.util.*;
+
 import javax.jdo.*;
 
 @javax.jdo.annotations.PersistenceCapable
@@ -18,16 +19,24 @@ public class Studio
 		return name;
 	}
 
-//	public static Studio find(String sName, PersistenceManager pm)
-//
-//	/* Returns the studio with the given name "sName";
-//           if no such studio exists, null is returned. 
-//           The function is applied to the database held by the persistence manager "pm". */
-//
-//	{
-//
-//	}
-//
+	public static Studio find(String sName, PersistenceManager pm)
+
+	/* Returns the studio with the given name "sName";
+           if no such studio exists, null is returned. 
+           The function is applied to the database held by the persistence manager "pm". */
+
+	{
+		Query q = pm.newQuery();
+		q.setClass(Studio.class);
+		q.declareParameters("String sName");
+		q.setFilter("this.name == sName");
+		@SuppressWarnings("unchecked")
+		Collection<Studio> result = (Collection<Studio>) q.execute(sName);
+		Studio found = Utility.extract(result);
+		return found;
+
+	}
+
 //	public static Collection<Studio> studiosWithThisActor(String aName, Query q)
 //
 //	/* Returns the collection of all studios that have made at least one movie
