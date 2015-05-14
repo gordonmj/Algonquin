@@ -20,15 +20,15 @@ public class Test
 
 		System.out.println( "-- TEST Studio.studiosWithThisActor --\n" );
 		Query q = pm.newQuery();
-//		Collection<Studio> ss = Studio.studiosWithThisActor("Cathleen Beckham", q);
-//		Utility.printCollection( ss );
+		Collection<Studio> ss = Studio.studiosWithThisActor("Cathleen Beckham", q);
+		Utility.printCollection( ss );
 		q.closeAll();
 		System.out.println();
 
 		System.out.println( "-- TEST Studio.studiosMinimumActors --\n" );
 		q = pm.newQuery();
-//		ss = Studio.studiosMinimumActors(2, q);
-//		Utility.printCollection( ss );
+		ss = Studio.studiosMinimumActors(2, q);
+		Utility.printCollection( ss );
 		q.closeAll();
 		System.out.println();
 

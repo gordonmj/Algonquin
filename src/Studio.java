@@ -37,24 +37,38 @@ public class Studio
 
 	}
 
-//	public static Collection<Studio> studiosWithThisActor(String aName, Query q)
-//
-//	/* Returns the collection of all studios that have made at least one movie
-//	   in which an actor with the name "aName" acted.
-//	   Sort the result by studio name. */
-//
-//	{
-//
-//	}
-//
-//	public static Collection<Studio> studiosMinimumActors(int x, Query q)
-//
-//	/* Returns the collection of all studios that have made a movie in which at least "x" actors acted.
-//	   Sort the result by studio name. */
-//
-//	{
-//
-//	}
+	public static Collection<Studio> studiosWithThisActor(String aName, Query q)
+
+	/* Returns the collection of all studios that have made at least one movie
+	   in which an actor with the name "aName" acted.
+	   Sort the result by studio name. */
+
+	{
+		q.setClass(Studio.class);
+		q.declareParameters("String aName");
+		q.declareVariables("Movie m; Actor a");
+		q.setFilter("this.movies.contains(m) && m.actors.contains(a) && a.name==aName");
+		q.setOrdering("this.name ascending");
+		@SuppressWarnings("unchecked")
+		Collection<Studio> result = (Collection<Studio>) q.execute(aName);
+		return result;
+	}
+
+	public static Collection<Studio> studiosMinimumActors(int x, Query q)
+
+	/* Returns the collection of all studios that have made a movie in which at least "x" actors acted.
+	   Sort the result by studio name. */
+
+	{
+		q.setClass(Studio.class);
+		q.declareParameters("int x");
+		q.declareVariables("Movie m");
+		q.setFilter("this.movies.contains(m) && m.actors.size()>=x");
+		q.setOrdering("this.name ascending");
+		@SuppressWarnings("unchecked")
+		Collection<Studio> result = (Collection<Studio>) q.execute(x);
+		return result;
+	}
 
 //	public static Collection<Studio> studiosInThisYear(int yr, Query q)
 //
