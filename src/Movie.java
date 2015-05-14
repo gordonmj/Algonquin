@@ -1,4 +1,4 @@
-package oodb2;
+
 
 import java.util.*;
 import javax.jdo.*;

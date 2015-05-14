@@ -1,4 +1,4 @@
-package oodb2;
+
 
 import java.util.*;
 
@@ -23,7 +23,7 @@ public class Actor extends Person
 		q.setCandidates(c);
 		q.declareParameters("int y1, int y2");
 		q.declareVariables("Movie m");
-		q.setFilter("");//this.movies.contains(m) && m.releaseYear>=y1 && m.releaseYear<=y2");
+		q.setFilter("this.movies.contains(m) && m.releaseYear>=y1 && m.releaseYear<=y2");
 		@SuppressWarnings("unchecked")
 		Collection<Actor> result = (Collection<Actor>) q.execute(y1,y2);
 		return result;
