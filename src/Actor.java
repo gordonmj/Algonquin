@@ -28,13 +28,20 @@ public class Actor extends Person
 		return result;
 	}
 
-//	public static Collection<Actor> actedForThisStudio(String sName, Query q)
-//
-//	/* Returns the collection of all actors who acted in a movie made by
-//	   the studio with the name "sName".
-//	   Sort the result by name. */
-//
-//	{
-//
-//	}
+	public static Collection<Actor> actedForThisStudio(String sName, Query q)
+
+	/* Returns the collection of all actors who acted in a movie made by
+	   the studio with the name "sName".
+	   Sort the result by name. */
+
+	{
+		q.setClass(Actor.class);
+		q.declareParameters("String sName");
+		q.declareVariables("Movie m; Studio s");
+		q.setFilter("this.movies.contains(m) && s.movies.contains(m) && s.name==sName");
+		q.setOrdering("this.name ascending");
+		@SuppressWarnings("unchecked")
+		Collection<Actor> result = (Collection<Actor>) q.execute(sName);
+		return result;
+	}
 }

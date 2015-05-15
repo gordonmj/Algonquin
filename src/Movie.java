@@ -1,6 +1,7 @@
 
 
 import java.util.*;
+
 import javax.jdo.*;
 
 @javax.jdo.annotations.PersistenceCapable
@@ -22,15 +23,21 @@ public class Movie
 		return title+" "+releaseYear;
 	}
 
-//	public static Collection<Movie> sameTitle(Query q)
-//
-//	/* Returns the collection of all movies each of which has at least
-//	   one other movie with the same title. 
-//	   Sort the result by (title, releaseYear). */
-//
-//	{
-//
-//	}
+	public static Collection<Movie> sameTitle(Query q)
+
+	/* Returns the collection of all movies each of which has at least
+	   one other movie with the same title. 
+	   Sort the result by (title, releaseYear). */
+
+	{
+		q.setClass(Movie.class);
+		q.declareVariables("Movie m");
+		q.setFilter("m.title == this.title && m <> this");
+		q.setOrdering("title ascending");
+		@SuppressWarnings("unchecked")
+		Collection<Movie> result = (Collection<Movie>) q.execute();
+		return result;
+	}
 
 //	public static Collection<Movie> studioActors(String sName, int x, Query q)
 //

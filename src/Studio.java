@@ -70,18 +70,26 @@ public class Studio
 		return result;
 	}
 
-//	public static Collection<Studio> studiosInThisYear(int yr, Query q)
-//
-//	/* Returns the collection of all studios "s" that satisfy the following condition:
-//
-//	   "s" has made at least one movie released in year "yr" that had
-//	   an actor that acted in another movie which was released in the same year "yr" and
-//	   was NOT made by the studio "s".
-//
-//	   Sort the result by studio name. */
-//
-//	{
-//
-//	}
+	public static Collection<Studio> studiosInThisYear(int yr, Query q)
+
+	/* Returns the collection of all studios "s" that satisfy the following condition:
+
+	   "s" has made at least one movie released in year "yr" that had
+	   an actor that acted in another movie which was released in the same year "yr" and
+	   was NOT made by the studio "s".
+
+	   Sort the result by studio name. */
+
+	{
+		q.setClass(Studio.class);
+		q.declareParameters("int yr");
+		q.declareVariables("Movie m1; Actor a; Movie m2");
+		q.setFilter("this.movies.contains(m1) && m1.releaseYear==yr && m1.actors.contains(a) && a.movies.contains(m2) && m2.releaseYear==yr");
+		q.setOrdering("this.name ascending");
+		@SuppressWarnings("unchecked")
+		Collection<Studio> result = (Collection<Studio>) q.execute(yr);
+		return result;
+
+	}
 }
 
