@@ -77,28 +77,28 @@ public class Test
 
 		System.out.println( "-- TEST Movie.studioActors --\n" );
 		q = pm.newQuery();
-//		mm = Movie.studioActors("Queens Indie Film", 2, q);
-//		Utility.printCollection( mm );
+		mm = Movie.studioActors("Queens Indie Film", 2, q);
+		Utility.printCollection( mm );
 		q.closeAll();
 		System.out.println();
 
 		System.out.println( "-- TEST Movie.madeByDirectorBetweenTheseYears --\n" );
 		q = pm.newQuery();
-//		mm = Movie.madeByDirectorBetweenTheseYears(d, 1970, 2005, q);
-//		Utility.printCollection( mm );
+		mm = Movie.madeByDirectorBetweenTheseYears(d, 1970, 2005, q);
+		Utility.printCollection( mm );
 		q.closeAll();
 		System.out.println();
 
 		System.out.println( "-- TEST Movie.allMovieStudioDirectorTuples --\n" );
 		q = pm.newQuery();
-//		Collection<Object[]> result = Movie.allMovieStudioDirectorTuples(q);
-//		Utility.printCollectionOfArrays( result );
+		Collection<Object[]> result = Movie.allMovieStudioDirectorTuples(q);
+		Utility.printCollectionOfArrays( result );
 		q.closeAll();
 
 		System.out.println( "-- TEST Movie.groupMoviesByDirector --\n" );
 		q = pm.newQuery();
-//		result = Movie.groupMoviesByDirector(q);
-//		Utility.printCollectionOfArrays( result );
+		result = Movie.groupMoviesByDirector(q);
+		Utility.printCollectionOfArrays( result );
 		q.closeAll();
 
 		if ( !pm.isClosed() )
